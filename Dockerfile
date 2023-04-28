@@ -5,4 +5,5 @@ RUN cd /src && go build -o goapp
 FROM alpine:latest
 WORKDIR /app
 COPY --from=build-env /src/goapp /app/
-ENTRYPOINT ./goapp
+COPY . .
+ENTRYPOINT GIN_MODE=release ./goapp
