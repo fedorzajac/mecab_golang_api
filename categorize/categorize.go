@@ -10,7 +10,7 @@ import (
 
 type Cat struct {
 	Category string
-	Words Entry
+	Words    Entry
 }
 
 type Entry struct {
@@ -52,7 +52,7 @@ func read_categories_from_json(str string) map[string]Entry {
 	jsonFile, err := os.Open(str)
 	// if we os.Open returns an error then handle it
 	if err != nil {
-			fmt.Println(err)
+		fmt.Println(err)
 	}
 	// fmt.Println("Successfully Opened users.json")
 	// defer the closing of our jsonFile so that we can parse it later on
@@ -79,28 +79,28 @@ func Categorize(str string) Cat {
 
 	// fmt.Println(N1["唱える"])
 	// var categorization_list Cat
-		if val, ok := N1[str]; ok {
-			print(val.K, " is N1 \n")
-			return Cat{"N1", val}
-		}
-		if val, ok := N2[str]; ok {
-			print(val.K, " is N2 \n")
-			return Cat{"N2", val}
-		}
-		if val, ok := N3[str]; ok {
-			print(val.K, " is N3 \n")
-			return Cat{"N3", val}
-		}
-		if val, ok := N4[str]; ok {
-			print(val.K, " is N4 \n")
-			return Cat{"N4", val}
+	if val, ok := N1[str]; ok {
+		// print(val.K, " is N1 \n")
+		return Cat{"N1", val}
+	}
+	if val, ok := N2[str]; ok {
+		// print(val.K, " is N2 \n")
+		return Cat{"N2", val}
+	}
+	if val, ok := N3[str]; ok {
+		// print(val.K, " is N3 \n")
+		return Cat{"N3", val}
+	}
+	if val, ok := N4[str]; ok {
+		// print(val.K, " is N4 \n")
+		return Cat{"N4", val}
 
-		}
-		if val, ok := N5[str]; ok {
-			print(val.K, " is N5 \n")
-			return Cat{"N5", val}
+	}
+	if val, ok := N5[str]; ok {
+		print(val.K, " is N5 \n")
+		// return Cat{"N5", val}
 
-		}
-		return Cat{"UN", Entry{str, "", ""}}
-		// categorization_list["undefined"][c] = Entry{c, "", ""}
+	}
+	return Cat{"UN", Entry{str, "", ""}}
+	// categorization_list["undefined"][c] = Entry{c, "", ""}
 }
