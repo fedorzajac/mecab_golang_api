@@ -1,5 +1,3 @@
-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
-
 https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 
 
@@ -7,8 +5,6 @@ https://docs.github.com/en/packages/working-with-a-github-packages-registry/work
 
 ```bash
 go build .
-export CR_PAT=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
-echo $CR_PAT | docker login ghcr.io -u fedorzajac --password-stdin
 docker build -t mecab_golang_api .
 docker images
 docker tag c01a8ac6bf8a ghcr.io/fedorzajac/mecab_golang_api:latest
@@ -18,8 +14,6 @@ docker push ghcr.io/fedorzajac/mecab_golang_api:latest
 then, on vm
 
 ```bash
-export CR_PAT=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
-echo $CR_PAT | docker login ghcr.io -u fedorzajac --password-stdin
 docker pull ghcr.io/fedorzajac/mecab_golang_api:latest
 docker run -d -p 8080:8080 ghcr.io/...
 ```
